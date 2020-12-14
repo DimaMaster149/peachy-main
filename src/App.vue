@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="container" class="container center">
     <main-video />
   </div>
 </template>
