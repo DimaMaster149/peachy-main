@@ -41,6 +41,7 @@ export default {
       newPrice: '',
 
       videoOptions: {
+        loop: true,
         muted: true,
         autoplay: true,
         sources: [
@@ -60,7 +61,7 @@ export default {
   },
 
   mounted () {
-    const containerWidth = document.getElementById('container').innerWidth;
+    const containerWidth = document.getElementById('video-container').innerWidth;
 
     this.height = Math.round(window.innerHeight * 0.8);
     this.width = (this.height / 3 * 2) > containerWidth ? containerWidth : Math.round(this.height / 3 * 2);
