@@ -3,7 +3,6 @@
     :style="{ 'width': width + 'px', 'height': height + 'px' }"
     class="video-wrapper mb-3"
   >
-
     <video
       :id="`main-video`"
       ref="videoPlayer"
@@ -19,9 +18,12 @@
         <button class="video-buttons__item">
           Add to Сart
         </button>
-        <button class="video-buttons__item">
+        <a
+          :href="previewLink"
+          class="video-buttons__item"
+        >
           Preview
-        </button>
+        </a>
       </div>
     </div>
 
@@ -39,11 +41,12 @@ export default {
       height: 0,
       oldPrice: '',
       newPrice: '',
+      previewLink: '',
 
       videoOptions: {
         loop: true,
         muted: true,
-        autoplay: true,
+        autoplay: false,
         sources: [
           {
             src: '',
@@ -58,6 +61,7 @@ export default {
     this.videoOptions.sources[0].src = window.mainVideo;
     this.oldPrice = window.oldPrice;
     this.newPrice = window.newPrice;
+    this.previewLink = window.previewLink;
   },
 
   mounted () {
@@ -67,7 +71,9 @@ export default {
     this.width = (this.height / 3 * 2) > containerWidth ? containerWidth : Math.round(this.height / 3 * 2);
 
     const videojs = window.videojs;
-    this.player = videojs(this.$refs.videoPlayer, this.videoOptions)
+    this.player = videojs(this.$refs.videoPlayer, this.videoOptions, function () {
+      this.play();
+    })
   },
   beforeDestroy () {
     if (this.player) {
