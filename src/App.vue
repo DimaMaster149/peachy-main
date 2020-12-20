@@ -1,6 +1,6 @@
 <template>
   <div id="video-container" class="video-container video-center">
-    <main-video />
+    <main-video :name="name"/>
   </div>
 </template>
 
@@ -12,5 +12,6 @@ export default {
   components: {
     MainVideo,
   },
+  props: ['name']
 };
 </script>

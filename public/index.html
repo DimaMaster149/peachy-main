@@ -9,17 +9,32 @@
     <link href="//vjs.zencdn.net/7.8.2/video-js.min.css" rel="stylesheet">
     <script script src="//vjs.zencdn.net/7.8.2/video.min.js"></script>
     <script>
-      window.mainVideo = 'https://www.dropbox.com/sh/g06lwwd4i8g87s6/AAAAZX3msxTcQFMtKYk8Tbnqa/18.mp4?raw=1'
-      window.oldPrice = '$35';
-      window.newPrice = '$20';
-      window.previewLink = 'http://peachygram.com/ny_collection';
+      window.christmas = {}
+      window.christmas.mainVideo = 'https://www.dropbox.com/sh/g06lwwd4i8g87s6/AAAAZX3msxTcQFMtKYk8Tbnqa/18.mp4?raw=1'
+      window.christmas.oldPrice = '$35';
+      window.christmas.newPrice = '$20';
+      window.christmas.previewLink = 'http://peachygram.com/ny_collection';
+
+      window.newYear = {}
+      window.newYear.mainVideo = 'https://www.dropbox.com/sh/g06lwwd4i8g87s6/AAAAZX3msxTcQFMtKYk8Tbnqa/18.mp4?raw=1'
+      window.newYear.oldPrice = '$25';
+      window.newYear.newPrice = '$20';
+      window.newYear.previewLink = 'http://peachygram.com/ny_collection';
+
+      window.beauty = {}
+      window.beauty.mainVideo = 'https://www.dropbox.com/sh/g06lwwd4i8g87s6/AAAAZX3msxTcQFMtKYk8Tbnqa/18.mp4?raw=1'
+      window.beauty.oldPrice = '$25';
+      window.beauty.newPrice = '$20';
+      window.beauty.previewLink = 'http://peachygram.com/ny_collection';
     </script>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="main-video"></div>
+     <div class="main-video" data-name="christmas"></div>
+     <div class="main-video" data-name="newYear"></div>
+     <div class="main-video" data-name="beauty"></div>
     <!-- built files will be auto injected -->
   </body>
 </html>

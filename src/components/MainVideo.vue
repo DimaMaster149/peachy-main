@@ -2,11 +2,13 @@
   <div
     :style="{ 'width': width + 'px', 'height': height + 'px' }"
     class="video-wrapper mb-3"
+    @click="redirect"
   >
     <video
       :id="`main-video`"
       ref="videoPlayer"
       class="video video-js"
+      preload="auto"
     ></video>
 
     <div class="video-block">
@@ -15,7 +17,10 @@
         <span class="video-price__main">{{newPrice}}</span>
       </div>
       <div class="video-buttons">
-        <button class="video-buttons__item">
+        <button
+          class="video-buttons__item"
+          @click.stop="addToCart"
+        >
           Add to Сart
         </button>
         <a
@@ -33,6 +38,8 @@
 <script>
 export default {
   name: 'main-video',
+
+  props: ['name'],
 
   data () {
     return {
@@ -58,10 +65,10 @@ export default {
   },
 
   created () {
-    this.videoOptions.sources[0].src = window.mainVideo;
-    this.oldPrice = window.oldPrice;
-    this.newPrice = window.newPrice;
-    this.previewLink = window.previewLink;
+    this.videoOptions.sources[0].src = window[this.name].mainVideo;
+    this.oldPrice = window[this.name].oldPrice;
+    this.newPrice = window[this.name].newPrice;
+    this.previewLink = window[this.name].previewLink;
   },
 
   mounted () {
@@ -80,5 +87,13 @@ export default {
       this.player.dispose()
     }
   },
+  methods: {
+    redirect () {
+      document.location.assign(this.previewLink)
+    },
+    addToCart () {
+      console.log('add to cart')
+    },
+  }
 };
 </script>
