@@ -1,3 +1,10 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'FuturaPT', Arial, sans-serif;
+}
+
 .video,
 .video video {
 	width: 100%;
@@ -64,6 +71,11 @@
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.basic-container {
+	background-color: #fbebe3;
+}
+
 @media (min-width: 768px) {
 	.video-container {
 		width: 750px;

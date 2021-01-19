@@ -1,6 +1,11 @@
 <template>
-  <div id="video-container" class="video-container video-center">
-    <main-video :name="name"/>
+  <div class="basic-container">
+    <div
+      id="video-container"
+      class="video-container video-center"
+    >
+      <main-video :name="name" />
+    </div>
   </div>
 </template>
 

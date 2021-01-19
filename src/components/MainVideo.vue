@@ -1,8 +1,8 @@
 <template>
-  <div
+  <a
+    :href="previewLink"
     :style="{ 'width': width + 'px', 'height': height + 'px' }"
     class="video-wrapper mb-3"
-    @click="redirect"
   >
     <video
       :id="`main-video`"
@@ -16,23 +16,9 @@
         <span class="video-price__crossed strikethrough">{{oldPrice}}</span>
         <span class="video-price__main">{{newPrice}}</span>
       </div>
-      <div class="video-buttons">
-        <button
-          class="video-buttons__item"
-          @click.stop="addToCart"
-        >
-          Add to Сart
-        </button>
-        <a
-          :href="previewLink"
-          class="video-buttons__item"
-        >
-          Preview
-        </a>
-      </div>
     </div>
 
-  </div>
+  </a>
 </template>
 
 <script>
@@ -49,6 +35,7 @@ export default {
       oldPrice: '',
       newPrice: '',
       previewLink: '',
+      purchaseLink: '',
 
       videoOptions: {
         loop: true,
@@ -69,6 +56,7 @@ export default {
     this.oldPrice = window[this.name].oldPrice;
     this.newPrice = window[this.name].newPrice;
     this.previewLink = window[this.name].previewLink;
+    this.purchaseLink = window[this.name].purchaseLink;
   },
 
   mounted () {
@@ -87,13 +75,5 @@ export default {
       this.player.dispose()
     }
   },
-  methods: {
-    redirect () {
-      document.location.assign(this.previewLink)
-    },
-    addToCart () {
-      console.log('add to cart')
-    },
-  }
 };
 </script>
